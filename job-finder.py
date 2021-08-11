@@ -2,6 +2,7 @@ import requests,os
 from bs4 import BeautifulSoup
 #Global vars
 
+#takes data from user directly or from file
 def take_user_data():
     #Take input from user for first time
     data = []
@@ -19,6 +20,7 @@ def take_user_data():
     
     return {'jobs':data[0],'location':data[1],'exp':data[2]}
 
+#Simply returns BeautifulSoup object of a given URL to directly play with html tags
 def get_webpage(web_url, data): #data var to send in params of link
     input_values = {
         'searchType':'personalizedSearch',
@@ -31,6 +33,6 @@ def get_webpage(web_url, data): #data var to send in params of link
     return BeautifulSoup(response.text,'lxml')
 
 if __name__=='__main__':
-    data = take_user_data()
+    data = take_user_data() 
     #Create request packet 
     html = get_webpage('https://www.timesjobs.com/candidate/job-search.html',data)
