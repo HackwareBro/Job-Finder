@@ -5,7 +5,7 @@ I am trying to make a program which can give alerts about the latest jobs on tim
 
 This program will update from time to time and I will also add many resources to find jobs in one go.
 
-I will highly appreciate your contribution to this program to reach it on the next level of automation
+<b>I will highly appreciate your contribution to this program to reach it on the next level of automation</b>
 
 ## Installation
 
@@ -13,7 +13,14 @@ Install required modules for this python program by typing:
 `pip3 install -r requirements.txt`
 
 ## Usage
+![pic (1)](https://user-images.githubusercontent.com/85396426/129229756-7462d074-0c9a-4a0a-a14f-301ad3861955.gif)
+You have to simply give input in the first use of this program ,after your first input the program will store it in the `data.bin` file for later use. If you want to change your data then simply delete this file so that your program can get input from you again.
 
+After giving input for first time, simply you can get updates about latest jobs within a single click.
+
+![pic (2)](https://user-images.githubusercontent.com/85396426/129229729-cd473256-7d8e-4f0c-8088-d957ffe0706f.gif)
+
+After enlisting all of the jobs, this program also logs the current terminal's job listing in the file named `job_listing.txt` and you can also go for more detailed info about the jobs by typing their job no mentioned on the terminal to directly open the web browser for more detailed info of that job which you want.
 ## Contributing
 
 1. Fork it!
