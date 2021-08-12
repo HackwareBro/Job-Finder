@@ -1,7 +1,8 @@
-import requests,os
+import requests,os, colorama
 from bs4 import BeautifulSoup
-#Global vars
+from colorama import Fore, Back, Style
 
+colorama.init()
 #takes data from user directly or from file
 def take_user_data():
     #Take input from user for first time
@@ -29,7 +30,12 @@ def get_webpage(web_url, data): #data var to send in params of link
         'txtLocation': data['location'],
         "cboWorkExp1": data['exp']
     }
-    response = requests.get(web_url,params=input_values)
+    try:
+        response = requests.get(web_url,params=input_values)
+        assert response.status_code == 200
+    except Exception:
+        print("Check your Internet Connection!")
+        exit()
     return BeautifulSoup(response.text,'lxml')
 
 def extract_data(html_page):
@@ -73,9 +79,9 @@ Made By: Hackware Bro
     complete_data = extract_data(html)
     for entry in complete_data:
         print(f"""
-Job Name : {entry['job']}
+Job Name : {Fore.BLACK}{Back.WHITE} {entry['job']}{Fore.RESET}{Back.RESET}
 Company name : {entry['company']}
-Key-Skills Required : {entry['skills']}
+Key-Skills Required : {Back.MAGENTA} {entry['skills']}{Fore.RESET}{Back.RESET}
 Location : {entry['location']}
 Visit the website for more info : {entry['link']}
         """)
