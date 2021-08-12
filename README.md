@@ -1,6 +1,8 @@
 # Python Job Finder
 Through this program, you can check out your desire jobs within one click! You have to give your input at the first run of this program after that, this program will search recent job posting for you within one click from the website: https://www.timesjobs.com/
 
+You can simply run this python script through run dialogue box to get daily updates about your desire job without typing your input again and again.
+
 I am trying to make a program which can give alerts about the latest jobs on time!
 
 This program will update from time to time and I will also add many resources to find jobs in one go.
@@ -14,6 +16,7 @@ Install required modules for this python program by typing:
 
 ## Usage
 ![pic (1)](https://user-images.githubusercontent.com/85396426/129229756-7462d074-0c9a-4a0a-a14f-301ad3861955.gif)
+
 You have to simply give input in the first use of this program ,after your first input the program will store it in the `data.bin` file for later use. If you want to change your data then simply delete this file so that your program can get input from you again.
 
 After giving input for first time, simply you can get updates about latest jobs within a single click.
