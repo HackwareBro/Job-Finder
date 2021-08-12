@@ -1,4 +1,4 @@
-import requests,os, colorama
+import requests,os, colorama, webbrowser
 from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style
 
@@ -77,11 +77,28 @@ Made By: Hackware Bro
     #Create request packet 
     html = get_webpage('https://www.timesjobs.com/candidate/job-search.html',data)
     complete_data = extract_data(html)
-    for entry in complete_data:
-        print(f"""
+    job_links = []
+    
+    with open('job_listing.txt','w') as f:
+        for ind , entry in enumerate(complete_data):
+            entry_txt = f"""
+{ind + 1}.
 Job Name : {Fore.BLACK}{Back.WHITE} {entry['job']}{Fore.RESET}{Back.RESET}
 Company name : {entry['company']}
 Key-Skills Required : {Back.MAGENTA} {entry['skills']}{Fore.RESET}{Back.RESET}
 Location : {entry['location']}
 Visit the website for more info : {entry['link']}
-        """)
+            """
+            f.write(entry_txt) #Write into file 
+            print(entry_txt)   #shows the output at the same time
+            job_links.append(entry['link']) 
+    print(f'{Fore.YELLOW}{Back.RED}Your current job listing has been written on the file as well!{Fore.RESET}{Back.RESET}')
+    while True:
+        try:
+            link_no = int(input('\nType job no to get more info about it (Only press enter to close): '))
+            if not link_no in range(1,len(job_links)+1):    #if integer is not in the range to close the program
+                break
+            webbrowser.open(job_links[link_no-1])
+        except Exception:   #when gives other than integer to quit program
+            print(f'Thanks for using this!\nFollow {Fore.MAGENTA}{Back.WHITE}HackwareBro{Fore.RESET}{Back.RESET} for more informative material')
+            break
